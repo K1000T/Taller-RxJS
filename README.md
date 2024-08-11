@@ -1,4 +1,4 @@
 # Taller-RxJS
-Realizado el:
+Realizado el: 4/04/2024
 
 Enunciado del taller:
