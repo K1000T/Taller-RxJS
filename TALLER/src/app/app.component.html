@@ -1,0 +1,25 @@
+<!-- app.component.html -->
+<div class="container py-5">
+  <div class=" mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+      <h1 class="card-title text-center">BUSQUEDA USUARIO</h1>
+      <form (ngSubmit)="searchUser()" class="my-4">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" [(ngModel)]="txtUser" name="username" placeholder="Enter username" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">BUSCAR</button>
+      </form>
+      <div *ngIf="mensajeError" class="alert alert-danger mt-3">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ mensajeError }}
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="usuario">
+    <app-user-info [usuario]="usuario"></app-user-info>
+  </ng-container>
+  <ng-container *ngIf="publicacion">
+    <app-post [publicacion]="publicacion" [comentarios]="comentarios"></app-post>
+  </ng-container>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="row mt-5">
+  <div class="col-lg-6 mx-auto">
+    <ng-container *ngIf="usuario">
+      <div>
+        <h2 class="mb-3">Datos del usuario</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Name:</strong> {{ usuario.name }}</p>
+            <p><strong>Email:</strong> {{ usuario.email }}</p>
+            <p><strong>Username:</strong> {{ usuario.username }}</p>
+            <p>
+              <strong>Height:</strong>
+              <a>{{ usuario.height }}</a>
+            </p>
+            <p><strong>Weight:</strong> {{ usuario.weight }}</p>
+            <p><strong>Image:</strong> {{ usuario.image }}</p>
+            <p><strong>Phone:</strong> {{ usuario.phone }}</p>
+            <p><strong>Gender:</strong> {{ usuario.gender }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="mensajeError">
+      <div class="alert alert-danger mt-4">
+        {{ mensajeError }}
+      </div>
+    </ng-container>
+  </div>
+</div>

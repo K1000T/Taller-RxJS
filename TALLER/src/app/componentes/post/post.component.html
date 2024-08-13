@@ -1,0 +1,48 @@
+<div class="row mt-5">
+  <div class="col-lg-6 mx-auto">
+    <div class="alert">
+      <h2>Posts</h2>
+      <p class="bold">
+        <i class="bi" ></i>
+        Number of posts: {{ countPublicaciones() }}
+      </p>
+
+      <ng-container *ngIf="publicacion && publicacion.length > 0">
+        <div *ngFor="let post of publicacion; let i = index">
+          <div class="alert ">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.body }}</p>
+            <p class="comments">
+              <i class="bi "></i>
+              Comments: {{ countComentariosPorPublicacion(i) }}
+            </p>
+
+            <div class="alert alert-warning">
+
+          <div *ngIf="comentarios?.[i] && comentarios?.[i].length > 0; else noComments">
+            <div *ngFor="let comentario of comentarios?.[i]">
+              <div class="alert" role="alert">
+              <p>
+                <i class="bi bi-person-circle "></i>
+                User: {{ comentario.user?.username }}
+              </p>
+              <p>{{ comentario.body }}</p>
+              <br>
+            </div>
+            </div>
+          </div>
+        </div>
+
+          <ng-template #noComments>
+            <p>No comments available.</p>
+          </ng-template>
+          </div>
+
+        </div>
+      </ng-container>
+      <ng-template #noPosts>
+        <p>No posts available.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
